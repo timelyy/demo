@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.124.201:3306/hibuilding_project?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=PRC&useSSL=false
+    username: root
+    password: root
+    
+#开启驼峰转换
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

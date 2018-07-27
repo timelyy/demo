@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.generat.demo.dao.BimProjectUserAppAuthMapper">
+  <resultMap id="BaseResultMap" type="com.generat.demo.entity.BimProjectUserAppAuth">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="app_id" jdbcType="VARCHAR" property="appId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="project_id" jdbcType="VARCHAR" property="projectId" />
+    <result column="auth_relation" jdbcType="BIT" property="authRelation" />
+    <result column="auth_insert" jdbcType="BIT" property="authInsert" />
+    <result column="auth_update" jdbcType="BIT" property="authUpdate" />
+    <result column="auth_delete" jdbcType="BIT" property="authDelete" />
+    <result column="auth_select" jdbcType="BIT" property="authSelect" />
+    <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, app_id, user_id, project_id, auth_relation, auth_insert, auth_update, auth_delete, 
+    auth_select, updated_by, updated_at, created_at, created_by
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bim_project_user_app_auth
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from bim_project_user_app_auth
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.generat.demo.entity.BimProjectUserAppAuth">
+    insert into bim_project_user_app_auth (id, app_id, user_id, 
+      project_id, auth_relation, auth_insert, 
+      auth_update, auth_delete, auth_select, 
+      updated_by, updated_at, created_at, 
+      created_by)
+    values (#{id,jdbcType=VARCHAR}, #{appId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{projectId,jdbcType=VARCHAR}, #{authRelation,jdbcType=BIT}, #{authInsert,jdbcType=BIT}, 
+      #{authUpdate,jdbcType=BIT}, #{authDelete,jdbcType=BIT}, #{authSelect,jdbcType=BIT}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedAt,jdbcType=TIMESTAMP}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.generat.demo.entity.BimProjectUserAppAuth">
+    insert into bim_project_user_app_auth
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="appId != null">
+        app_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="projectId != null">
+        project_id,
+      </if>
+      <if test="authRelation != null">
+        auth_relation,
+      </if>
+      <if test="authInsert != null">
+        auth_insert,
+      </if>
+      <if test="authUpdate != null">
+        auth_update,
+      </if>
+      <if test="authDelete != null">
+        auth_delete,
+      </if>
+      <if test="authSelect != null">
+        auth_select,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null">
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="authRelation != null">
+        #{authRelation,jdbcType=BIT},
+      </if>
+      <if test="authInsert != null">
+        #{authInsert,jdbcType=BIT},
+      </if>
+      <if test="authUpdate != null">
+        #{authUpdate,jdbcType=BIT},
+      </if>
+      <if test="authDelete != null">
+        #{authDelete,jdbcType=BIT},
+      </if>
+      <if test="authSelect != null">
+        #{authSelect,jdbcType=BIT},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.generat.demo.entity.BimProjectUserAppAuth">
+    update bim_project_user_app_auth
+    <set>
+      <if test="appId != null">
+        app_id = #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null">
+        project_id = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="authRelation != null">
+        auth_relation = #{authRelation,jdbcType=BIT},
+      </if>
+      <if test="authInsert != null">
+        auth_insert = #{authInsert,jdbcType=BIT},
+      </if>
+      <if test="authUpdate != null">
+        auth_update = #{authUpdate,jdbcType=BIT},
+      </if>
+      <if test="authDelete != null">
+        auth_delete = #{authDelete,jdbcType=BIT},
+      </if>
+      <if test="authSelect != null">
+        auth_select = #{authSelect,jdbcType=BIT},
+      </if>
+      <if test="updatedBy != null">
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null">
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.generat.demo.entity.BimProjectUserAppAuth">
+    update bim_project_user_app_auth
+    set app_id = #{appId,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=VARCHAR},
+      auth_relation = #{authRelation,jdbcType=BIT},
+      auth_insert = #{authInsert,jdbcType=BIT},
+      auth_update = #{authUpdate,jdbcType=BIT},
+      auth_delete = #{authDelete,jdbcType=BIT},
+      auth_select = #{authSelect,jdbcType=BIT},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
